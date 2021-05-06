@@ -36,6 +36,7 @@
                   type="text"
                   class="w-full h-12 px-3 py-3 text-sm uppercase transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
                   placeholder="Your name"
+                  
                 />
           </form>
           <form class="my-2 ">
@@ -72,7 +73,7 @@
                   DATE
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
                   placeholder="DATE"
                 />
