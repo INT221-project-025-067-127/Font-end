@@ -17,12 +17,12 @@
               class=" h-product w-product justify-items-start hover:text-blueGrey-800 focus:outline-none"
             />
           </button>
-          <div id="name" class="text-xl font-light text-left">{{ products.name }}</div>
-          <div id="brand" class="text-sm font-light text-left">{{ products.brand}}</div>
-          <!-- <div class="text-sm font-light text-left">{{ products.price }}</div>
+          <div id="name" class="text-xl font-light text-left">{{ product.name }}</div>
+          <div id="brand" class="text-sm font-light text-left">{{ product.brand.name}}</div>
+          <div class="text-sm font-light text-left">{{ product.price }}</div>
           <div class="text-sm font-light text-left text-blueGray-400">
-            {{ products.releaseDate }}
-          </div> -->
+            {{ product.releaseDate }}
+          </div>
         </div>
 
         <!-- click like -->
@@ -52,25 +52,23 @@ export default {
   data() {
     return {
       products: [],
+   
     };
   },
   methods: {
     getProducts() {
       axios.get("http://localhost:5000/products")
       .then((res) => res.data)
-      .then(data => data.forEach(
-        item => {
-           this.products = item
-          //  this.test
-           
-         }
-         ))
+      .then(data => {
+        this.products = data;
+      })
      
     },
-    // test(){
-    //   console.log(this.products.name)
-    
-    // }
+    callProduct(index){
+      
+      this.$emit('showProduct', this.products[index])
+      
+    }
   },
 }
 </script>
