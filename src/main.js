@@ -15,7 +15,6 @@ import App from "@/App.vue";
 import Admin from "@/layouts/Admin.vue";
 import ProductLay from "@/layouts/ProductLay.vue";
 
-
 // views for Admin layout
 
 import products from "@/views/admin/products.vue";
@@ -31,9 +30,8 @@ import Edit from "@/views/apply/EditProduct.vue";
 // views without layouts
 import Index from "@/views/Index.vue";
 
-
 //TESTING
-import Basket from "@/components/Cards/Basket.vue"
+import Basket from "@/components/Cards/Basket.vue";
 // routes
 
 const routes = [
@@ -43,13 +41,11 @@ const routes = [
     redirect: "/admin/contact",
     component: Admin,
     children: [
-     
-      
       {
         path: "/admin/contact",
         component: Contact,
       },
-      
+
       {
         path: "/apply/login",
         component: Login,
@@ -58,17 +54,20 @@ const routes = [
         path: "/apply/register",
         component: Register,
       },
-      
+
       {
         path: "/basket",
         component: Basket,
       },
       {
-        path: "/apply/editproduct",
+        path: "/apply/editproduct:id",
+        name: Edit,
         component: Edit,
       },
       {
-        path: "/admin/viewproduct",
+        path: "/admin/viewproduct/:id",
+        name: ViewProduct,
+        // props: true,
         component: ViewProduct,
       },
     ],
@@ -78,8 +77,6 @@ const routes = [
     redirect: "/productlay",
     component: ProductLay,
     children: [
-      
-
       {
         path: "/productlay/products",
         component: products,
@@ -87,7 +84,6 @@ const routes = [
     ],
   },
 
-  
   {
     path: "/",
     component: Index,
@@ -100,4 +96,6 @@ const router = createRouter({
   routes,
 });
 
-createApp(App).use(router).mount("#app");
+createApp(App)
+  .use(router)
+  .mount("#app");

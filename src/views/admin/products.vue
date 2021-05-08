@@ -11,7 +11,9 @@
       <div class="rounded shadow-xl ">
         <!--  picture -->
         <div>
-          <button @click="callProduct(index)">
+          <button  @click="callProduct(index)" >
+          <!--  to="/admin/viewproduct/prd001"-->
+            <!-- :to="{ name: 'ViewProduct', params: { id: product[index].id } }"  -->
             <!-- v-bind:src="" -->
             <img
               class=" h-product w-product justify-items-start hover:text-blueGrey-800 focus:outline-none"
@@ -52,6 +54,7 @@ export default {
   data() {
     return {
       products: [],
+      sent:[]
    
     };
   },
@@ -65,11 +68,12 @@ export default {
      
     },
     callProduct(index){
-      
-      this.$emit('showProduct', this.products[index])
+      const sent = this.products[index]
+      // this.$emit('showProduct', sent)
+      this.$router.push("/admin/viewproduct/"+sent.id)
       
     }
-  },
+  }
 }
 </script>
 <style scoped>

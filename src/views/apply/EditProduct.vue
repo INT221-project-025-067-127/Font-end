@@ -38,8 +38,7 @@
                   placeholder="Your name"
                   
                 />
-          </form>
-          <form class="my-2 ">
+        
             <label
                   class="block text-lg font-bold uppercase text-blueGray-800"
                   htmlFor="grid-password"
@@ -51,8 +50,7 @@
                   class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
                   placeholder="PRICE"
                 />
-          </form>
-          <form class="my-2 ">
+          
             <label
                   class="block text-lg font-bold uppercase text-blueGray-800"
                   htmlFor="grid-password"
@@ -64,8 +62,7 @@
                   class="w-full h-12 px-3 py-3 text-sm uppercase transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
                   placeholder="Brand"
                 />
-          </form>
-          <form class="my-2 ">
+          
             <label
                   class="block text-lg font-bold uppercase text-blueGray-800"
                   htmlFor="grid-password"
@@ -100,15 +97,14 @@ import nike1 from "@/assets/img/nike1.jpeg";
 import nike2 from "@/assets/img/nike2.jpeg";
 import nike3 from "@/assets/img/nike3.jpeg";
 export default {
-  // name: "shose",
-  // components: {
-  //   shose
-  // }
+  
+  
   data() {
     return {
       nike1,
       nike2,
       nike3,
+      productId: this.$route.params.id,
     };
   },
 };
