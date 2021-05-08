@@ -37,11 +37,11 @@
            
             <div class="flex" >
             <router-link to="/apply/editproduct" class="h-12 pt-3 mt-2 mr-2 font-light text-center text-white uppercase rounded-lg w-edit border-1 bg-blueGray-800">add to cart</router-link>
-            <div  @click="updateProduct"  class="h-12 pt-3 mt-2 mb-0 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">UPDATE</div>
+            <div  @click="addProduct"  class="h-12 pt-3 mt-2 mb-0 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">ADD PRODUCT</div>
             </div>
             <div class="flex" >
             <router-link to="/apply/editproduct" class="h-12 pt-3 mt-2 mr-2 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">EDIT</router-link>
-            <div @click="deleteProduct()"    class="h-12 pt-3 mt-2 mb-0 font-light text-center text-white rounded-lg bg-blueGray-800 w-edit border-1">DELETE</div>
+            <div @click="deleteProduct()"    class="h-12 pt-3 mt-2 mb-0 font-light text-center text-white rounded-lg bg-blueGray-800 w-edit border-1 ">DELETE</div>
             </div>
           </div>
         </div>
@@ -91,8 +91,8 @@ export default {
       this.$router.push("/productlay/products")
      
     },
-    updateProduct(){
-       this.$router.push("/apply/editproduct/"+this.productId)
+    addProduct(){
+       this.$router.push("/apply/addproduct")
     }
   }
 };

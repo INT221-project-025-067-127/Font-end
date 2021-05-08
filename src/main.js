@@ -25,8 +25,8 @@ import ViewProduct from "@/views/admin/ViewProduct.vue";
 // views for apply layout
 import Login from "@/views/apply/Login.vue";
 import Register from "@/views/apply/Register.vue";
-import Edit from "@/views/apply/EditProduct.vue";
-
+import Update from "@/views/apply/UpdateProduct.vue";
+import AddProduct from "@/views/apply/AddProduct.vue";
 // views without layouts
 import Index from "@/views/Index.vue";
 
@@ -60,9 +60,13 @@ const routes = [
         component: Basket,
       },
       {
-        path: "/apply/editproduct:id",
-        name: Edit,
-        component: Edit,
+        path: "/apply/addproduct",
+        component: AddProduct,
+      },
+      {
+        path: "/apply/update:id",
+        name: Update,
+        component: Update,
       },
       {
         path: "/admin/viewproduct/:id",

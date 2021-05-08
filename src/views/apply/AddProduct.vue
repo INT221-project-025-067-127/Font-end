@@ -1,0 +1,207 @@
+<template>
+  <div class="mx-auto mt-32 text-black max-w-auto justify-items-center ">
+    <div class="justify-center w-auto h-auto m-24 bg-white rounded ">
+      <form @submit.prevent="submitForm">
+        <div class="flex justify-center">
+          <div class="m-8 h-preview w-preview">
+            <img :src="nike1" class="h-preBox2 w-preview" />
+            <!-- <div class="flex mt-3 h-smallPre w-preview">
+            <img :src="nike1" class="mr-smallPre w-smallPre h-smallPre " />
+            <img :src="nike1" class="mr-smallPre w-smallPre h-smallPre" />
+            <img :src="nike1" class="w-smallPre h-smallPre" />
+          </div> -->
+
+            <div class="h-12 mt-10 uppercase text-md">
+              <label
+                class="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                htmlFor="grid-password"
+              >
+                Description
+              </label>
+              <input
+                type="text"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="text"
+              />
+            </div>
+          </div>
+          <div class="mt-10 h-preBox w-preBox">
+            <div class="my-2 ">
+              <label
+                for="name"
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                NAME
+              </label>
+              <input
+                type="text"
+                class="w-full h-12 px-3 py-3 text-sm uppercase transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="Your name"
+                v-model="name"
+              />
+
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                PRICE
+              </label>
+              <input
+                type="text"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="PRICE"
+                v-model="price"
+              />
+
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                BRAND
+              </label>
+              <input
+                type="text"
+                class="w-full h-12 px-3 py-3 text-sm uppercase transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="Brand"
+                v-model="brand"
+              />
+
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                DATE
+              </label>
+              <input
+                type="date"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="DATE"
+                v-model="date"
+              />
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                AMOUNT
+              </label>
+              <input
+                type="number"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="Amount"
+                v-model="amount"
+              />
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                COLOR CODE
+              </label>
+              <input
+                type="text"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="color code"
+                v-model="color"
+              />
+              <label
+                class="block text-lg font-bold uppercase text-blueGray-800"
+                htmlFor="grid-password"
+              >
+                Size
+              </label>
+              <input
+                type="number"
+                class="w-full h-12 px-3 py-3 text-sm transition-all duration-150 ease-linear bg-white border-gray-300 rounded shadow resize-y border-1 placeholder-blueGray-300 text-blueGray-800 focus:outline-none focus:ring"
+                placeholder="SIZE"
+                v-model="size"
+              />
+            </div>
+
+            <!-- <div class="h-24 mt-4 bg-white w-preBoX"> -->
+
+            <div class="flex mt-10">
+              <button
+                type="submit"
+                value="submit"
+                class="h-12 pt-3 mt-2 mr-2 font-light text-center rounded-lg border-blueGray-800 w-edit border-1"
+              >
+                UPDATE
+              </button>
+              <div
+                class="h-12 pt-3 mt-2 mb-0 font-light text-center text-white rounded-lg bg-blueGray-800 w-edit border-1"
+              >
+                CANCLE
+              </div>
+            </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- </div> -->
+</template>
+
+<script>
+// import shose from "@/assets/img/adidas1.jpeg";
+import nike1 from "@/assets/img/nike1.jpeg";
+import nike2 from "@/assets/img/nike2.jpeg";
+import nike3 from "@/assets/img/nike3.jpeg";
+import axios from "axios";
+export default {
+  // created() {
+  //   this.getProduct();
+  // },
+
+  data() {
+    return {
+      nike1,
+      nike2,
+      nike3,
+      // productId: this.$route.params.id,
+      // products:[],
+      id: "",
+      name: "",
+      price: null,
+      brand: "",
+      date: "",
+      description: "",
+      amount: null,
+      color: "",
+      size: null
+    };
+  },
+  methods: {
+    submitForm() {
+      axios.post("http://localhost:5000/products", {
+        // headers: {
+        //   "Content-type": "application/json",
+        // },
+        // body: JSON.stringify({
+        id: this.id,
+        name: this.name,
+        price: this.price,
+        releaseDate: this.date,
+        description: this.description,
+        quantity: [
+          {
+            amount: this.amount,
+            color: {
+              name: this.color,
+              code: null
+            },
+            size: {
+              size: this.size
+            }
+          }
+        ],
+        images: [
+          {
+            imageName: "DEFULT"
+          }
+        ]
+      });
+    }
+  }
+};
+</script>
