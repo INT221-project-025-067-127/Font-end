@@ -17,7 +17,7 @@
             {{products.name}}
           </div>
           <div class="my-4 text-2xl">PRICE : {{products.price}}</div>
-          <div  class="my-4 text-2xl" >Brand : {{products.brand}}</div>
+          <div  class="my-4 text-2xl" >Brand : {{ products.brand }}</div>
           <div class="grid h-20 grid-cols-3 my-2 text-center w-preBox " >
             <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 35.5</div>
             <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600"> EU : 36</div>
@@ -40,7 +40,7 @@
             <div  @click="addProduct"  class="h-12 pt-3 mt-2 mb-0 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">ADD PRODUCT</div>
             </div>
             <div class="flex" >
-            <router-link to="/apply/editproduct" class="h-12 pt-3 mt-2 mr-2 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">EDIT</router-link>
+            <div @click="updateProduct" class="h-12 pt-3 mt-2 mr-2 font-light text-center rounded-lg border-blueGray-800 w-edit border-1">UPDATE</div>
             <div @click="deleteProduct()"    class="h-12 pt-3 mt-2 mb-0 font-light text-center text-white rounded-lg bg-blueGray-800 w-edit border-1 ">DELETE</div>
             </div>
           </div>
@@ -68,6 +68,7 @@ export default {
       nike3,
       productId :this.$route.params.id, 
      products: [],
+     brandName: "",
 
     };
   },
@@ -80,7 +81,7 @@ export default {
         val => {
                if(val.id == this.productId){              
                    this.products = val;
-                   console.log(this.products.brand.name)
+                  //  val.brand.name = this.brandName;
                }
            } 
       ))
@@ -93,6 +94,10 @@ export default {
     },
     addProduct(){
        this.$router.push("/apply/addproduct")
+    },
+    updateProduct(){
+      console.log(this.productId)
+      this.$router.push("/apply/update/"+this.productId)
     }
   }
 };

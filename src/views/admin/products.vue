@@ -5,7 +5,7 @@
  
     <div
        v-for="(product,index) in products"
-      :key="product.name"
+      :key="product.id"
       class="flex-wrap items-center p-5 px-2 mx-auto my-4 overflow-hidden bg-white rounded shadow-lg gallery "
     >
       <div class="rounded shadow-xl ">

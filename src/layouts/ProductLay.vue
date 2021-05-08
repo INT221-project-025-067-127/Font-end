@@ -20,7 +20,7 @@ import NavBar from "@/components/Navbars/ProductNav.vue";
 import Sidebar from "@/components/Navbars/BrandSide.vue";
 import FooterAdmin from "@/components/Footers/Footer.vue";
 export default {
-  // props:['btnText'],
+ 
   name: "admin-layout",
   components: {
     NavBar,
@@ -29,20 +29,13 @@ export default {
   },
   data(){
     return {
-      products: [],
+     
       
    
     };
   },
   methods:{
-    // callProduct(sent){
-      
-      // this.products = sent;
-      // console.log(this.products)
-      // { name: 'ViewProduct', params: { id: sent.id } }
-      //  this.$router.push({ name: 'ViewProduct', params: { id: sent.id } })
-      // this.$emit("showProduct",this.product)
-    // }
+  
   }
 };
 </script>
