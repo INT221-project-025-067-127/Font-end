@@ -1,30 +1,24 @@
 <template>
-   <div class="mx-auto mt-32 text-black max-w-auto justify-items-center">
+   <div class=".wrapper">
     <div class="justify-center w-auto h-auto m-24 bg-white rounded">
-      <div class="flex justify-center ">
+      <div class="">
+        <!-- 1 -->
         <div class="m-8 h-preview w-preview">
           <img :src="nike1" class="h-preBox2 w-preview" />
-          <!-- <div class="flex mt-3 h-smallPre w-preview">
-            <img :src="nike1" class="mr-smallPre w-smallPre h-smallPre " />
-            <img :src="nike1" class="mr-smallPre w-smallPre h-smallPre" />
-            <img :src="nike1" class="w-smallPre h-smallPre" />
-          </div> -->
           <div class="mt-10 uppercase text-md">DESCRIPTION : {{products.description}}</div>
           
         </div>
+        <!-- 2 -->
         <div class="m-8 h-preBox w-preBox">
           <div class="my-2 text-5xl font-bold ">
             {{products.name}}
           </div>
           <div class="my-4 text-2xl">PRICE : {{products.price}}</div>
-          <div  class="my-4 text-2xl" >Brand : {{ products.brand }}</div>
-          <div class="grid h-20 grid-cols-3 my-2 text-center w-preBox " >
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 35.5</div>
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600"> EU : 36</div>
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 37</div>
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 38</div>
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 39</div>
-            <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">EU : 40</div>
+          <div  class="my-4 text-2xl" >Brand : {{ brand }}</div>
+          <div   class="grid h-20 grid-cols-3 my-2 text-center w-preBox " >
+            <!-- <div class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600">{{sizes.size}}</div> -->
+            <div v-for="(size ,index) in dbSize" :key="index" class="pt-1 font-light rounded-md border-1 h-size w-size border-blueGray-600"> {{size }}</div>
+            
           </div>
           <div class="flex h-20 my-2 w-preBox" >
             <div class="mt-4 mr-3 rounded-full bg-emerald-800 h-color w-color"></div>
@@ -47,6 +41,9 @@
         </div>
       </div>
     </div>
+
+
+    
   </div>
 </template>
 
@@ -66,29 +63,47 @@ export default {
       nike1,
       nike2,
       nike3,
+      dbSize:[],
+      dbColor:[],
       productId :this.$route.params.id, 
      products: [],
+     brand:"",
+     size:[
+      
+     ],
      brandName: "",
 
     };
   },
   methods:{
     getView(){
-      axios.get("http://localhost:5000/products")
+      axios.get("http://52.163.222.28:9000/api/productInfo/"+this.productId)
       .then((res) => res.data)
-      .then(data => data.forEach(
-        // console.log(data.id)
-        val => {
-               if(val.id == this.productId){              
-                   this.products = val;
-                  //  val.brand.name = this.brandName;
-               }
-           } 
-      ))
+      .then((data)=> {
+        this.products = data;
+        this.brand = data.brand.name
+        data.quantity.forEach((q) => {
+            this.dbSize.push(q.size.size);
+            this.dbColor.push(q.color.name);
+            console.log(q)
+            
+          });
+      });
+      // .then(val => { console.log(val)
+          // val.quantity.forEach((q) => {
+          //   this.dbSize.push(q.size.size);
+          //   this.dbColor.push(q.color.name);
+          //   console.log(q)
+            
+          // });
+         
+      
+   
+     
      
     },
     deleteProduct(){
-      axios.delete("http://localhost:5000/products/"+this.productId)
+      axios.delete("http://52.163.222.28:9000/api/productInfo/"+this.productId)
       this.$router.push("/productlay/products")
      
     },
@@ -129,11 +144,23 @@ export default {
 }
 @media screen and (max-width: 480px) {
 
-.product{
-  /* margin : 5rem; */
-  /* height: auto; */
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
-
+body {
+  background: #808080;
+  padding: 0 10px;
+}
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  margin: 90px auto;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  padding: 30px;
+}
 }
 </style>

@@ -1,59 +1,6 @@
 {
   "products": [
     {
-      "id": "a4ff1185-5898-4514-99e0-70c3d1bb039c",
-      "name": "NIKE MAX",
-      "price": "2000",
-      "releaseDate": "",
-      "description": "เท่ที่สุดในโลก",
-      "brand": {
-        "name": ""
-      },
-      "quantity": [
-        {
-          "amount": 4,
-          "color": {
-            "name": "black",
-            "code": null
-          },
-          "size": {
-            "size": "UK 7"
-          }
-        },
-        {
-          "amount": 47,
-          "color": {
-            "name": "yellow",
-            "code": "#FDD017"
-          },
-          "size": {
-            "size": "UK 7"
-          }
-        },
-        {
-          "amount": 0,
-          "color": {
-            "name": "black",
-            "code": null
-          },
-          "size": {
-            "size": "UK 7.5"
-          }
-        },
-        {
-          "amount": 68,
-          "color": {
-            "name": "yellow",
-            "code": "#FDD017"
-          },
-          "size": {
-            "size": "UK 7.5"
-          }
-        }
-      ],
-      "images": []
-    },
-    {
       "id": "e6e87017-5e62-4398-8bc2-711607b871d4",
       "name": "NMD_R1 PK",
       "price": 5800,

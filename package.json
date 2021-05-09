@@ -8,7 +8,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "backend": "json-server --watch db.json --port 5000",
-    "build": "vue-cli-service build && gulp licenses",
+    "build": "vue-cli-service",
     "lint": "vue-cli-service lint",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run serve"
@@ -21,8 +21,7 @@
     "axios": "^0.21.1",
     "chart.js": "2.9.4",
     "core-js": "3.9.1",
-    "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.8",
+  
     "vue": "3.0.7",
     "vue-router": "4.0.5"
   },

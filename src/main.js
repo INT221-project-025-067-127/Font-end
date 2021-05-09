@@ -21,7 +21,7 @@ import products from "@/views/admin/products.vue";
 import Contact from "@/views/admin/Contact.vue";
 
 import ViewProduct from "@/views/admin/ViewProduct.vue";
-
+import t from "@/views/admin/test.vue";
 // views for apply layout
 import Login from "@/views/apply/Login.vue";
 import Register from "@/views/apply/Register.vue";
@@ -41,6 +41,10 @@ const routes = [
     redirect: "/admin/contact",
     component: Admin,
     children: [
+      {
+        path: "/test",
+        component: t,
+      },
       {
         path: "/admin/contact",
         component: Contact,

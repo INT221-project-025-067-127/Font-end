@@ -5,7 +5,7 @@
  
     <div
        v-for="(product,index) in products"
-      :key="product.id"
+      :key="index"
       class="flex-wrap items-center p-5 px-2 mx-auto my-4 overflow-hidden bg-white rounded shadow-lg gallery "
     >
       <div class="rounded shadow-xl ">
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     getProducts() {
-      axios.get("http://localhost:5000/products")
+      axios.get("http://52.163.222.28:9000/api/productsInfo")
       .then((res) => res.data)
       .then(data => {
         this.products = data;
@@ -68,9 +68,9 @@ export default {
      
     },
     callProduct(index){
-      const sent = this.products[index]
-      // this.$emit('showProduct', sent)
-      this.$router.push("/admin/viewproduct/"+sent.id)
+      // const sent = this.products[index]
+      console.log(this.products[index].productId)
+      this.$router.push("/admin/viewproduct/"+this.products[index].productId)
       
     }
   }
