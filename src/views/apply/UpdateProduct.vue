@@ -17,7 +17,7 @@
       </div>
       <div class="inputfield">
         <label>brands</label>
-        <input type="text" class="input" v-model="products.brands" />
+        <input type="text" class="input" v-model="brand" />
       </div>
       <!-- price -->
       <div class="inputfield">
@@ -89,7 +89,7 @@
       </div>
       <div class="inputfield">
         <label>Description</label>
-        <textarea class="textarea" v-model="description"></textarea>
+        <textarea class="textarea" v-model="products.description"></textarea>
       </div>
 
       <div class="inputfield">
@@ -125,9 +125,14 @@ export default {
       nike3,
       productId: this.$route.params.id,
       //para
-      id:"",
-      name: "",
-      price: null,
+      params: {
+        id: "",
+        name: "",
+        price: null,
+        date: "",
+        description: "",
+      },
+      
       brand: "",
       date: "",
       description: "",
@@ -165,7 +170,8 @@ export default {
             this.dbSize.push(val.size.size);
             this.dbColor.push(val.color.name);
             
-          });
+          },
+          data.brand.name = this.brand);
         });
         axios
         .get("http://52.163.222.28/api/productInfo/" + this.productId)
@@ -178,25 +184,37 @@ export default {
     },
     inputFile(event){
       this.image = event.target.files[0];
-      console.log(this.image);
+      // console.log(this.image);
     },
     submitForm() {
-       let form = new FormData();
-      form.append("product", new Blob([JSON.stringify({
-        id: this.params.id,
-        name: this.params.name,
-        price: this.params.price,
-        releaseDate: this.params.date,
-        description: this.params.description,
+      console.log(this.quantity);
+      let form = new FormData();
+      let data = {
+         id: this.products.id,
+        name: this.products.name,
+        price: this.products.price,
+        releaseDate: this.products.date,
+        description: this.products.description,
         brand: {
-          name: this.brands,
+          name: "nike",
         },
         quantity: this.quantity,
-      })]));
+      }
+      // console.log(data)
+      // console.log(this.image)
+      let jsonData = JSON.stringify(data)
+      let blob = new Blob([jsonData],{
+        type: "application/json"
+      })
+      form.append("product", blob)
       form.append("files", this.image);
-      axios.put("http://52.163.222.28/api/productsInfo", form);
       
-    
+      axios.put("http://52.163.222.28/api/productInfo", form, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    });
+    this.$route.push("/productlay/products")
     },
     mapColorSize() {
       this.quantity = [];

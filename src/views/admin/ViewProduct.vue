@@ -97,7 +97,8 @@ export default {
      
     },
     deleteProduct(){
-      this.$router.push("/productlay/products")
+      axios.delete("http://52.163.222.28/api/product/"+this.productId)
+      .then(this.$router.push("/productlay/products"))
      
     },
     addProduct(){

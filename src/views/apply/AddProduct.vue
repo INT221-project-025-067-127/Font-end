@@ -95,7 +95,7 @@
         <input
           type="file" 
           class="text-blueGray-800"
-          name="avatar"
+          name="img"
           accept="image/png, image/jpeg"
           @input="inputFile"
         />
@@ -160,7 +160,7 @@ export default {
       axios
         .get("http://52.163.222.28/api/sizes")
         .then((res) => res.data)
-        .then((data) => (this.getSize = data), console.log(this.getSize));
+        .then((data) => (this.getSize = data));
       axios
         .get("http://52.163.222.28/api/colors")
         .then((data) => data.data)
@@ -193,11 +193,11 @@ export default {
         },
         quantity: this.quantity,
       }
-      console.log(data)
+      // console.log(data)
       console.log(this.image)
       let jsonData = JSON.stringify(data)
       let blob = new Blob([jsonData],{
-        type: "application/jsons"
+        type: "application/json"
       })
       form.append("product", blob)
       form.append("files", this.image);
@@ -207,6 +207,7 @@ export default {
             'content-type': 'multipart/form-data'
         }
     });
+    this.$route.push("/productlay/products")
     },
   },
   updated() {

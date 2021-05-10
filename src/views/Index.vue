@@ -40,8 +40,7 @@
         alt="..."
       />
     </section>
-    <!-- <section class="relative pb-40 mx-auto mt-48 md:mt-40 bg-blueGray-100 "> -->
-     //brand
+   
     <section class="container pb-20 mx-auto overflow-hidden">
       <div
         class="absolute top-0 left-0 right-0 bottom-auto w-full h-20 -mt-20"
