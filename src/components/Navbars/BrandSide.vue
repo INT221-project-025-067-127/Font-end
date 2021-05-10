@@ -164,10 +164,9 @@
             </router-link>
           </li>
           <li class="items-center">
-            <router-link to="" v-slot="{ href, navigate, isActive }">
+            <button >
               <a
                 :href="href"
-                @click="navigate"
                 class="block py-3 text-sm font-thin uppercase"
                 :class="[
                   isActive
@@ -175,17 +174,11 @@
                     : 'text-blueGray-700 hover:text-blueGray-500',
                 ]"
               >
-                
                 CONVERSE
               </a>
-            </router-link>
+            </button>
           </li>
         </ul>
-
-        
-       
-
-      
       </div>
     </div>
   </nav>

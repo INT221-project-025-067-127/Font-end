@@ -38,7 +38,7 @@
         >
           
           <span class=" material-icons text-blueGray-400">face</span>
-          NETWORK,BACK-END
+          DATA BASE,BACK-END
         </div>
         <div class="mt-10 mb-2 text-blueGray-600">
           <i class="mr-2 text-lg fas fa-briefcase text-blueGray-400"></i>

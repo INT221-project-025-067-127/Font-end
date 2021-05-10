@@ -70,7 +70,7 @@
                 <li>
                   <a
                     class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
-                    href="https://www.creative-tim.com/bootstrap-themes/free?ref=vn-footer"
+                    href="#"
                   >
                     kids
                   </a>

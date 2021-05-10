@@ -31,10 +31,10 @@
       >
         
         <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
-          <li class="flex items-center">
+          <li class="flex items-center border-2 border-black rounded-lg">
             <index-dropdown />
           </li>
-          <li class="flex items-center">
+          <!-- <li class="flex items-center">
             <a
               class="flex items-center px-3 py-2 text-xs font-bold uppercase hover:text-blueGray-500 text-blueGray-700"
               href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fvue-notus%2F%23%2F"
@@ -43,9 +43,9 @@
               <i class="text-lg text-blueGray-800 fab fa-facebook leading-lg" />
               <span class="inline-block ml-2 lg:hidden">Share</span>
             </a>
-          </li>
+          </li> -->
 
-          <li class="flex items-center">
+          <!-- <li class="flex items-center">
             <a
               class="flex items-center px-3 py-2 text-xs font-bold uppercase hover:text-blueGray-500 text-blueGray-700"
               href=""
@@ -54,18 +54,9 @@
               <i class="text-lg text-blueGray-800 fab fa-twitter leading-lg" />
               <span class="inline-block ml-2 lg:hidden">Tweet</span>
             </a>
-          </li>
+          </li> -->
 
-          <li class="flex items-center">
-            <a
-              class="flex items-center px-3 py-2 text-xs font-bold uppercase hover:text-blueGray-500 text-blueGray-700"
-              href="#"
-              target="_blank"
-            >
-              <i class="text-lg text-blueGray-800 fab fa-github leading-lg" />
-              <span class="inline-block ml-2 lg:hidden">Star</span>
-            </a>
-          </li>
+         
 
           <router-link to="/apply/login" class="flex items-center">
             <button
@@ -75,6 +66,16 @@
               login
             </button>
           </router-link>
+           <li class="flex items-center">
+            <a
+              class="flex items-center px-3 py-2 text-xs font-bold uppercase hover:text-blueGray-500 text-blueGray-700"
+              href="#"
+              target="_blank"
+            >
+              <i class="text-lg text-blueGray-800 fab fa-github leading-lg" />
+              <span class="inline-block ml-2 lg:hidden">Star</span>
+            </a>
+          </li>
            <router-link to="/basket" class="flex items-center mt-2 ml-1 text-center material-icons text-blueGray-800">shopping_bag</router-link>
         </ul>
       </div>

@@ -5,6 +5,10 @@
     </div>
     <div class="form">
       <div class="inputfield">
+        <label>ID</label>
+        <input type="text" class="input" v-model="params.id" />
+      </div>
+      <div class="inputfield">
         <label>name</label>
         <input type="text" class="input" v-model="params.name" />
       </div>
@@ -87,17 +91,18 @@
       <!-- image -->
        <div class="inputfield">
         <label for="avatar">Choose a profile picture:</label>
-        <input @click="inputFile"
+       
+        <input
           type="file" 
           class="text-blueGray-800"
           name="avatar"
           accept="image/png, image/jpeg"
           @input="inputFile"
         />
-        <!-- <button >edit</button> -->
+     
       </div>
       <div class="inputfield">
-        <input type="submit" value="Add Product" class="btn" />
+        <input type="submit" value="Add Product" class="btn" @click="submitForm"/>
       </div>
     </div>
   </div>
@@ -128,12 +133,12 @@ export default {
       sizes: [],
       quantity: [],
       brands: null,
-      image: [],
+      image: null,
+      // imgName:"",
       params: {
         id: "",
         name: "",
         price: null,
-
         date: "",
         description: "",
       },
@@ -153,11 +158,11 @@ export default {
 
     getView() {
       axios
-        .get("http://52.163.222.28:9000/api/sizes")
+        .get("http://52.163.222.28/api/sizes")
         .then((res) => res.data)
         .then((data) => (this.getSize = data), console.log(this.getSize));
       axios
-        .get("http://52.163.222.28:9000/api/colors")
+        .get("http://52.163.222.28/api/colors")
         .then((data) => data.data)
         .then((res) => (this.getColor = res));
     },
@@ -176,8 +181,9 @@ export default {
 
     submitForm() {
       console.log(this.quantity);
-      axios.post("http://52.163.222.28:9000/api/productsInfo", {
-        id: this.params.id,
+      let form = new FormData();
+      let data = {
+         id: this.params.id,
         name: this.params.name,
         price: this.params.price,
         releaseDate: this.params.date,
@@ -186,8 +192,21 @@ export default {
           name: this.brands,
         },
         quantity: this.quantity,
-        images: this.image
-      });
+      }
+      console.log(data)
+      console.log(this.image)
+      let jsonData = JSON.stringify(data)
+      let blob = new Blob([jsonData],{
+        type: "application/jsons"
+      })
+      form.append("product", blob)
+      form.append("files", this.image);
+      
+      axios.post("http://52.163.222.28/api/productInfo", form, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    });
     },
   },
   updated() {

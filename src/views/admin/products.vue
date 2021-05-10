@@ -17,6 +17,7 @@
             <!-- v-bind:src="" -->
             <img
               class=" h-product w-product justify-items-start hover:text-blueGrey-800 focus:outline-none"
+              :src="'http://52.163.222.28/api/files/' + product.images[0].imageName"
             />
           </button>
           <div id="name" class="text-xl font-light text-left">{{ product.name }}</div>
@@ -60,7 +61,7 @@ export default {
   },
   methods: {
     getProducts() {
-      axios.get("http://52.163.222.28:9000/api/productsInfo")
+      axios.get("http://52.163.222.28/api/productsInfo")
       .then((res) => res.data)
       .then(data => {
         this.products = data;

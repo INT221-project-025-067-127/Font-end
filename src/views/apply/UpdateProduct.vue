@@ -4,6 +4,7 @@
       UPDATE PRODUCTS
     </div>
     <div class="form">
+      
       <div class="inputfield">
         <label>name</label>
         <input
@@ -93,6 +94,7 @@
 
       <div class="inputfield">
         <label for="avatar">Choose a profile picture:</label>
+      
         <input @click="inputFile"
           type="file" 
           class="text-blueGray-800"
@@ -100,7 +102,7 @@
           accept="image/png, image/jpeg"
           @input="inputFile"
         />
-        <!-- <button >edit</button> -->
+     
       </div>
       <div class="inputfield">
         <input type="submit" value="Add Product" class="btn" />
@@ -122,18 +124,24 @@ export default {
       nike2,
       nike3,
       productId: this.$route.params.id,
+      //para
+      id:"",
       name: "",
       price: null,
       brand: "",
       date: "",
       description: "",
       quantity:[],
+      //get Data
       dbSize: [],
       dbColor: [],
       getSize: [],
       getColor: [],
+      //product
       products: [],
-      image: null
+      //img
+      image: null,
+      imgName: "",
     };
   },
   mounted() {
@@ -142,15 +150,15 @@ export default {
   methods: {
     getView() {
       axios
-        .get("http://52.163.222.28:9000/api/sizes")
+        .get("http://52.163.222.28/api/sizes")
         .then((res) => res.data)
         .then((data) => (this.getSize = data));
       axios
-        .get("http://52.163.222.28:9000/api/colors")
+        .get("http://52.163.222.28/api/colors")
         .then((data) => data.data)
         .then((res) => (this.getColor = res));
       axios
-        .get("http://52.163.222.28:9000/api/productInfo/" + this.productId)
+        .get("http://52.163.222.28/api/productInfo/" + this.productId)
         .then((res) => res.data)
         .then((data) => {
           data.quantity.forEach((val) => {
@@ -160,7 +168,7 @@ export default {
           });
         });
         axios
-        .get("http://52.163.222.28:9000/api/productInfo/" + this.productId)
+        .get("http://52.163.222.28/api/productInfo/" + this.productId)
         .then((res) => res.data)
         .then((data) => {
           this.products = data
@@ -173,8 +181,9 @@ export default {
       console.log(this.image);
     },
     submitForm() {
-      axios.put("http://52.163.222.28:9000/api/productsInfo/"+this.productId, {
-        
+       let form = new FormData();
+      form.append("product", new Blob([JSON.stringify({
+        id: this.params.id,
         name: this.params.name,
         price: this.params.price,
         releaseDate: this.params.date,
@@ -182,8 +191,11 @@ export default {
         brand: {
           name: this.brands,
         },
-        quantity: this.dbSize,
-      });
+        quantity: this.quantity,
+      })]));
+      form.append("files", this.image);
+      axios.put("http://52.163.222.28/api/productsInfo", form);
+      
     
     },
     mapColorSize() {
@@ -202,7 +214,7 @@ export default {
 };
 </script>
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"); */
 
 * {
   margin: 0;

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     
-    <div class="flex px-20 pt-48 pb-24">
+    <div class="flex flex-wrap mt-24">
       <div class="w-full px-4 lg:w-4/12"> 
       <cake/>
     </div>

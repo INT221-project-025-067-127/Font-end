@@ -1,8 +1,9 @@
 <template>
   <div>
     <index-navbar />
+    //HOME1
     <section
-      class="relative flex items-center h-screen pt-16 header max-h-860-px "
+      class="relative flex items-center h-screen pt-16 mx-auto header max-h-860-px"
     >
       <div class="container flex flex-wrap items-center mx-auto">
         <div class="w-full px-4 ">
@@ -39,11 +40,12 @@
         alt="..."
       />
     </section>
-
-    <section class="relative pb-40 mt-48 md:mt-40 bg-blueGray-100">
+    <!-- <section class="relative pb-40 mx-auto mt-48 md:mt-40 bg-blueGray-100 "> -->
+     //brand
+    <section class="container pb-20 mx-auto overflow-hidden">
       <div
         class="absolute top-0 left-0 right-0 bottom-auto w-full h-20 -mt-20"
-        style="transform: translateZ(0);"
+        style=""
       >
         <svg
           class="absolute bottom-0 overflow-hidden"
@@ -239,7 +241,7 @@
             </div>
           </div>
 
-          <div class="w-full px-12 mt-0 ml-auto mr-auto md:w-4/12 md:px-4">
+          <div class="w-full px-12 mx-auto mt-0 ml-auto md:w-4/12 md:px-4">
             <div
               class="inline-flex items-center justify-center w-16 h-16 p-3 mb-6 text-center bg-white rounded-full shadow-lg text-blueGray-500"
             >
@@ -276,8 +278,7 @@
         </div>
       </div>
     </section>
-  
-
+     
     <section class="py-20 overflow-hidden bg-blueGray-600 ">
       <div class="container pb-64 mx-auto">
         <div class="flex flex-wrap justify-center">
@@ -304,7 +305,7 @@
             <!-- link git  -->
             <a
             
-              href="https://github.com/INT221-project-025-067-127/project-progress"
+              href="#"
               target="_blank"
               class="inline-block px-6 py-4 mt-4 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none github-star focus:outline-none bg-blueGray-700 active:bg-blueGray-600 hover:shadow-lg"
             >
@@ -320,8 +321,8 @@
         </div>
       </div>
     </section>
-
-    <section class="relative pt-32 bg-white">
+   
+    <section class="relative pt-32 bg-black">
       <div
         class="absolute top-0 left-0 right-0 bottom-auto w-full h-20 -mt-20"
         style="transform: translateZ(0);"
@@ -344,6 +345,7 @@
 
   
     </section>
+    <!-- </section > -->
     <!-- footer -->
     <footer-component />
   </div>

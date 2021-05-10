@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "backend": "json-server --watch db.json --port 5000",
+   
     "build": "vue-cli-service",
     "lint": "vue-cli-service lint",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",

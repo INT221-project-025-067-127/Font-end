@@ -2239,7 +2239,7 @@ left: 0px;
   height: 415px
 }
 .w-preBox{
-  width:383.63px
+  width:600px
 }
 .w-edit{
   width: 350px
@@ -2419,8 +2419,8 @@ left: 0px;
 }
 
 .mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .my-6 {
@@ -2853,7 +2853,7 @@ left: 0px;
 }
 
 .p-2 {
-  padding: 0.5rem;
+  padding: 0.65rem;
 }
 
 .p-3 {
@@ -2876,8 +2876,8 @@ left: 0px;
 }
 
 .px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .py-1 {
@@ -4103,7 +4103,10 @@ left: 0px;
   .md\:mt-64 {
     margin-top: 16rem;
   }
-
+  .md\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
   .md\:ml-64 {
     margin-left: 16rem;
   }
@@ -4187,7 +4190,7 @@ left: 0px;
   .md\:text-left {
     text-align: left;
   }
-
+  
   .md\:w-64 {
     width: 16rem;
   }
