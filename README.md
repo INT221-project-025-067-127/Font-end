@@ -1,16 +1,14 @@
 
 ## Files and Folder
-
-This is the project structure that you will get upon the download:
 ```
 vue stucture
 .
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
-├── LICENSE.md
 ├── README.md
 ├── babel.config.js
 ├── package.json
+├── Dockerfile
+├── docker-compose.yml
+├── package-lock.json
 ├── public
 │   ├── favicon.ico
 │   └── index.html
@@ -18,7 +16,6 @@ vue stucture
 │   ├── App.vue
 │   ├── assets
 │   │   ├── img
-│   │   │   ├── member photos
 │   │   │   └── product photos
 │   │   └── styles
 │   │       ├── index.css
@@ -29,8 +26,11 @@ vue stucture
 │   │   │   ├── 067Card.vue
 │   │   │   ├── 127Cards.vue
 │   │   │   ├── Basket.vue 
+│   │   │   ├── CardSettings.vue 
 │   │   ├── Dropdowns
 │   │   │   ├── IndexDropdown.vue
+│   │   │   ├── ProflieDropdown.vue
+│   │   │   ├── BrandDropdown.vue
 │   │   ├── Footers
 │   │   │   ├── Footer.vue
 │   │   ├── Headers
@@ -38,20 +38,21 @@ vue stucture
 │   │   ├── Navbars
 │   │   │   ├── BrandSide.vue
 │   │   │   └── IndexNavbar.vue
+│   │   │   └── ProductNav.vue
 │   ├── layouts
 │   │   ├── Admin.vue
 │   │   └── ProductLay.vue
 │   ├── main.js
 │   └── views
 │       ├── admin
-│       │   ├── About.vue
 │       │   ├── Contact.vue
 │       │   ├── products.vue
 │       │   └── ViewProduct.vue
 │       └── apply
 │           ├── Login.vue
 │           └── Register.vue
-│           └── EditProduct.vue
+│           └── UpdateProduct.vue
+│           └── AddProduct.vue
 ├── tailwind.config.js
 └── vue.config.js
 ```
