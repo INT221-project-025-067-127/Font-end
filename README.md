@@ -53,6 +53,7 @@ vue stucture
 │           └── Register.vue
 │           └── UpdateProduct.vue
 │           └── AddProduct.vue
+│       ├── index.vue
 ├── tailwind.config.js
 └── vue.config.js
 ```
