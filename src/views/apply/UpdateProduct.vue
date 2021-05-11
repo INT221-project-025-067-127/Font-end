@@ -229,7 +229,7 @@ export default {
       form.append("product", blob)
       form.append("files", this.image);
       
-      axios.put("http://52.163.222.28/api/productInfo/"+this.productId, form, {
+      axios.put("http://52.163.222.28/api/product/"+this.productId, form, {
         headers: {
             'content-type': 'multipart/form-data'
         }
