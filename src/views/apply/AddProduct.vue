@@ -45,10 +45,10 @@
             >{{ color.name }}</option
           >
         </select>
-      </div>
+      <!-- </div> -->
 
       <!-- size -->
-      <div class="inputfield">
+      <!-- <div class="flex inputfield"> -->
         <label>Size</label>
         <select
           id=""
@@ -67,11 +67,11 @@
         </select>
       </div>
       <!-- amount -->
-      <div class="flex flex-col ">
+      <div class="flex flex-wrap mt-2 inputfield ">
         <div
           v-for="(item, index) in quantity"
           :key="index"
-          class="grid grid-cols-2"
+          class="grid grid-cols-2 mt-2"
         >
           <label for="index"
             >{{ item.color.name }} : {{ item.size.size }}</label
@@ -80,7 +80,7 @@
             v-model="item.amount"
             name="index"
             type="number"
-            class="w-12 h-8 text-center border border-blueGray-300"
+            class="w-12 h-8 m-4 text-center border border-blueGray-300"
           />
         </div>
       </div>
@@ -232,7 +232,7 @@ body {
   max-width: 500px;
   width: 100%;
   background: #fff;
-  margin: 90px auto;
+  margin: 80px auto;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
   padding: 30px;
 }
@@ -251,15 +251,15 @@ body {
 }
 
 .wrapper .form .inputfield {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
 
 .wrapper .form .inputfield label {
-  width: 200px;
+  width: 100px;
   color: #757575;
-  margin-right: 10px;
+  margin-right: 0px;
   font-size: 14px;
 }
 
@@ -269,7 +269,7 @@ body {
   outline: none;
   border: 1px solid #d5dbd9;
   font-size: 15px;
-  padding: 8px 10px;
+  padding: 8px 5px;
   border-radius: 3px;
   transition: all 0.3s ease;
 }

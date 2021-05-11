@@ -105,7 +105,7 @@
      
       </div>
       <div class="inputfield">
-        <input type="submit" value="Add Product" class="btn" />
+        <input type="submit" value="Update Product" class="btn" @click="submitForm"/>
       </div>
     </div>
   </div>
@@ -125,13 +125,13 @@ export default {
       nike3,
       productId: this.$route.params.id,
       //para
-      params: {
-        id: "",
-        name: "",
-        price: null,
-        date: "",
-        description: "",
-      },
+      // params: {
+      //   id: "",
+      //   name: "",
+      //   price: null,
+      //   date: "",
+      //   description: "",
+      // },
       
       brand: "",
       date: "",
@@ -153,15 +153,26 @@ export default {
     this.getView();
   },
   methods: {
-    getView() {
+    inputFile(event){
+      this.image = event.target.files[0];
+      console.log(this.image);
+    },
+    logColor() {
+      console.log(this.colors);
+    },
+
+        getView() {
+          //size from db
       axios
         .get("http://52.163.222.28/api/sizes")
         .then((res) => res.data)
         .then((data) => (this.getSize = data));
+        //color from color
       axios
         .get("http://52.163.222.28/api/colors")
         .then((data) => data.data)
         .then((res) => (this.getColor = res));
+        //get quantity size or color
       axios
         .get("http://52.163.222.28/api/productInfo/" + this.productId)
         .then((res) => res.data)
@@ -169,9 +180,9 @@ export default {
           data.quantity.forEach((val) => {
             this.dbSize.push(val.size.size);
             this.dbColor.push(val.color.name);
-            
-          },
-          data.brand.name = this.brand);
+          });
+          this.brand = data.brand.name,
+          console.log(this.brand) ;
         });
         axios
         .get("http://52.163.222.28/api/productInfo/" + this.productId)
@@ -181,40 +192,6 @@ export default {
           
           });
     
-    },
-    inputFile(event){
-      this.image = event.target.files[0];
-      // console.log(this.image);
-    },
-    submitForm() {
-      console.log(this.quantity);
-      let form = new FormData();
-      let data = {
-         id: this.products.id,
-        name: this.products.name,
-        price: this.products.price,
-        releaseDate: this.products.date,
-        description: this.products.description,
-        brand: {
-          name: "nike",
-        },
-        quantity: this.quantity,
-      }
-      // console.log(data)
-      // console.log(this.image)
-      let jsonData = JSON.stringify(data)
-      let blob = new Blob([jsonData],{
-        type: "application/json"
-      })
-      form.append("product", blob)
-      form.append("files", this.image);
-      
-      axios.put("http://52.163.222.28/api/productInfo", form, {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
-    });
-    this.$route.push("/productlay/products")
     },
     mapColorSize() {
       this.quantity = [];
@@ -228,11 +205,45 @@ export default {
         });
       });
     },
+
+    submitForm() {
+      console.log(this.quantity);
+      let form = new FormData();
+      let data = {
+         id: this.products.id,
+        name: this.products.name,
+        price: this.products.price,
+        releaseDate: this.products.date,
+        description: this.products.description,
+        brand: {
+          name: this.brand,
+        },
+        quantity: this.quantity,
+      }
+      // console.log(data)
+      console.log(this.image)
+      let jsonData = JSON.stringify(data)
+      let blob = new Blob([jsonData],{
+        type: "application/json"
+      })
+      form.append("product", blob)
+      form.append("files", this.image);
+      
+      axios.put("http://52.163.222.28/api/productInfo/"+this.productId, form, {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    });
+    // this.$route.push("/productlay/products")
+    },
+  },
+  updated() {
+  
   },
 };
 </script>
 <style scoped>
-/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"); */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 
 * {
   margin: 0;
@@ -248,7 +259,7 @@ body {
   max-width: 500px;
   width: 100%;
   background: #fff;
-  margin: 90px auto;
+  margin: 80px auto;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
   padding: 30px;
 }
@@ -267,15 +278,15 @@ body {
 }
 
 .wrapper .form .inputfield {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
 
 .wrapper .form .inputfield label {
-  width: 200px;
+  width: 100px;
   color: #757575;
-  margin-right: 10px;
+  margin-right: 0px;
   font-size: 14px;
 }
 
@@ -285,7 +296,7 @@ body {
   outline: none;
   border: 1px solid #d5dbd9;
   font-size: 15px;
-  padding: 8px 10px;
+  padding: 8px 5px;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
