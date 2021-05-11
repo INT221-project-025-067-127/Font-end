@@ -1,9 +1,8 @@
 <template>
   <div>
     <index-navbar />
-    //HOME1
     <section
-      class="relative flex items-center h-screen pt-16 mx-auto header max-h-860-px"
+      class="container grid grid-cols-2 pb-20 mx-auto mt-32 md:grid-cols-1"
     >
       <div class="container flex flex-wrap items-center mx-auto">
         <div class="w-full px-4 ">
@@ -22,13 +21,13 @@
               >
                 Get Started
               </router-link>
-              <router-link to="/apply/login"
+              <!-- <router-link to="/apply/login"
               
                 class="px-6 py-4 mb-1 ml-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-black rounded shadow outline-none github-star focus:outline-none active:bg-blueGray-600 hover:shadow-lg md:mt-4"
                
               >
                 Login
-              </router-link>
+              </router-link> -->
             </div>
           </div>
         </div>
