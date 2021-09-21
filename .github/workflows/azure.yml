@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}   
     - name: build image
       run: |
-          docker build . --tag ghcr.io/nattanunkorn9743/int221-025-067-127/front-end
+          docker build . --tag ghcr.io/int221-025-067-127/front-end
           docker image
       
       
